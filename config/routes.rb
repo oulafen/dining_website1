@@ -2,7 +2,14 @@ DiningWebsite::Application.routes.draw do
 
   root "login" =>""
 
-  get "admin_management" =>'admin#admin_management'
+  #admin
+  get "admin_index" =>'admin#admin_index'
+
+
+  #user
+  get "merchant_index" =>'merchant#merchant_index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
