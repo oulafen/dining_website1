@@ -1,0 +1,17 @@
+.modal.fade.in(style="background:#F5F5F5;margin-top:5%")
+  .nav-header
+    %h4 用户登录
+  .index-login.position-3
+
+    =form_for :user, url:create_login_session_path, method:'post' do |f|
+      .input-prepend
+        = f.label :'帐号' ,:class=>"add-on-1"
+        = f.text_field :name, :class=>"wid-350"
+      .input-prepend
+        = f.label :'密码', :class=>"add-on-1"
+        = f.text_field :password, :type=>"password", :class=>"wid-350"
+
+      .btn-danger.active
+        -#=flash.now[:error]
+      %div
+        = f.submit "登   录", class: "btn", style:'width:150px'
