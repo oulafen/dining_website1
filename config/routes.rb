@@ -1,13 +1,13 @@
 DiningWebsite::Application.routes.draw do
 
-  root "login" =>""
+  root "merchant#login"
 
   #admin
   get "admin_index" =>'admin#admin_index'
 
-
   #user
   get "merchant_index" =>'merchant#merchant_index'
+  post "create_login_session" =>"merchant#create_login_session"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
