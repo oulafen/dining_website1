@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -32,6 +33,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'haml'
+gem 'protected_attributes'
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
