@@ -1,0 +1,31 @@
+=render 'admin/admin_header'
+.row
+  .col-md-8.position-2
+    =link_to '餐馆管理',admin_index_path
+    %span
+      >>添加新餐馆
+.modal(style="margin-top:80px" )
+  .index-login.position-3
+    %br
+    %br
+    =form_for :merchant do |f|
+      .input-prepend
+        = f.label :'用户名', :class=>"add-on-1"
+        = f.text_field :user_name, :class=>"wid-350"
+      .input-prepend
+        = f.label :'餐馆名称', :class=>"add-on-1"
+        = f.text_field :restaurant_name, :class=>"wid-350"
+      .input-prepend
+        = f.label :'密码', :class=>"add-on-1"
+        = f.text_field :password, :type=>"password", :class=>"wid-350"
+      .input-prepend
+        = f.label :'请确认密码' ,:class=>"add-on-1"
+        = f.text_field :password_confirmation, :type=>"password", :class=>"wid-350"
+
+      .btn-danger.active
+        -if @merchant.errors.any?
+          = @merchant.errors.first
+
+      %div
+        = f.submit "确认", class: "btn", style:'width:50px'
+        = link_to '取消', cancel_add_merchant_path, :class=>'btn',:style=>'width:40px'
