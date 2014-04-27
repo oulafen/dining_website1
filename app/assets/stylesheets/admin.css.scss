@@ -1,9 +1,19 @@
 .header{
   margin-top: 0px;
-  background-color: #f1f1f1;
+  background-color: #FCFCFC;
   height: 75px;
   width: 100%;
 }
 body{
   margin: 0px;
+}
+.left-1{
+  position: absolute;
+  left: 60px;
+  top: 30px;
+}
+.right-2{
+  position: absolute;
+  right: 30px;
+  top: 50px;
 }

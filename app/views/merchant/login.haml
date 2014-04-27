@@ -5,13 +5,13 @@
 
     =form_for :user, url:create_login_session_path, method:'post' do |f|
       .input-prepend
-        = f.label :'帐号' ,:class=>"add-on-1"
-        = f.text_field :name, :class=>"wid-350"
+        = f.label :'用户名' ,:class=>"add-on-1"
+        = f.text_field :user_name, :class=>"wid-350"
       .input-prepend
         = f.label :'密码', :class=>"add-on-1"
         = f.text_field :password, :type=>"password", :class=>"wid-350"
 
       .btn-danger.active
-        -#=flash.now[:error]
+        =flash.now[:error]
       %div
         = f.submit "登   录", class: "btn", style:'width:150px'

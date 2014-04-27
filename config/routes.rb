@@ -10,6 +10,7 @@ DiningWebsite::Application.routes.draw do
   post 'add_new_merchant' =>'admin#save_new_merchant'
 
   #user
+  get 'login' => 'merchant#login'
   get "merchant_index" =>'merchant#merchant_index'
   get "logout" => 'merchant#logout'
   post "create_login_session" =>"merchant#create_login_session"
