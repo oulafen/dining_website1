@@ -16,14 +16,15 @@ class MerchantController < ApplicationController
       render :login
     end
     if merchant && merchant.authenticate(params[:user][:password])
-      session[:current_merchant] = merchant
+      session[:user_id] = merchant.id
       redirect_to merchant.login_type=='user' ? :merchant_index : :admin_index
     end
   end
 
   def merchant_index
-    if session[:current_merchant][:login_type] == 'user'
-      @restaurant_name = session[:current_merchant][:restaurant_name]
+    merchant=Merchant.find_by_id(session[:user_id])
+    if merchant[:login_type] == 'user'
+      @merchant = Merchant.find_by_id(session[:user_id])
     else
       redirect_to :login
     end

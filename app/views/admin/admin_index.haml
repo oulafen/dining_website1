@@ -33,8 +33,8 @@
             %td
               = m[:phone]
             %td
-              =link_to '修改'
-              =link_to '删除'
+              =link_to '修改',modify_merchant_info_path(:user_name=>m[:user_name])
+              =link_to '删除', delete_merchant_path(:user_name => m[:user_name]), :method => :delete, :confirm=>"您确定要删除\"#{m[:restaurant_name]}\"？"
   .modal-footer
     = will_paginate @merchant,:previous_label=>'<<',:next_label=>'>>'
 

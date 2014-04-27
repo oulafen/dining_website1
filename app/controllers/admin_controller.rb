@@ -2,7 +2,8 @@ class AdminController < ApplicationController
   require 'will_paginate/array'
 
   def admin_index
-    if session[:current_merchant][:login_type] == 'admin'
+    merchant = Merchant.find_by_id(session[:user_id])
+    if merchant[:login_type] == 'admin'
       @merchant = reconstruct_merchant_info.paginate :page => params[:page], :per_page => 10
     else
       redirect_to :login
@@ -21,6 +22,15 @@ class AdminController < ApplicationController
     else
       render :add_new_merchant
     end
+  end
+
+  def modify_merchant_info
+      @merchant = Merchant.find_by_user_name(params[:user_name])
+  end
+
+  def delete_merchant
+    Merchant.find_by_user_name(params[:user_name]).delete
+    redirect_to :admin_index
   end
 
   def reconstruct_merchant_info

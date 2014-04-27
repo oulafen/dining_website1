@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427091706) do
+ActiveRecord::Schema.define(version: 20140427142937) do
 
   create_table "labels", force: true do |t|
     t.datetime "created_at"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 20140427091706) do
     t.string   "login_type",      default: "user"
     t.string   "password_digest"
     t.string   "remark"
+    t.string   "addr",            default: " "
+    t.string   "phone",           default: " "
+    t.string   "logo",            default: " "
+    t.string   "label",           default: " "
   end
 
 end

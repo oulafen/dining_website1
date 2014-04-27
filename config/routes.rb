@@ -6,13 +6,16 @@ DiningWebsite::Application.routes.draw do
   get "admin_index" =>'admin#admin_index'
   get 'add_new_merchant' => 'admin#add_new_merchant'
   get 'cancel_add_merchant' =>'admin#add_new_merchant'
+  get 'modify_merchant_info' =>'admin#modify_merchant_info'
 
   post 'add_new_merchant' =>'admin#save_new_merchant'
 
+  delete 'delete_merchant' => 'admin#delete_merchant'
   #user
   get 'login' => 'merchant#login'
   get "merchant_index" =>'merchant#merchant_index'
   get "logout" => 'merchant#logout'
+
   post "create_login_session" =>"merchant#create_login_session"
 
 
