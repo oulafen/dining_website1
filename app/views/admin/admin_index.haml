@@ -1,1 +1,39 @@
-%h1 Admin#admin_index
+=render 'admin/admin_header'
+.box-2
+  %table.table.table-striped
+    %thead
+      %tr(style="height:60px;")
+        %td(style="background:#E0E0E0;" )
+          餐馆管理
+        %td
+          =link_to '标签管理'
+  %div(style="margin:0px 0px 0px 90px" )
+    =link_to '添加新餐馆', add_new_merchant_path, :class=>'btn'
+  .modal-body
+    %table.table.table-striped
+      %thead
+        %tr
+          %td
+            序号
+          %td
+            餐馆名称
+          %td
+            联系方式
+          %td
+            操作
+      %tbody
+        - num=0
+        - @merchant.each do |m|
+          - num += 1
+          %tr
+            %td
+              = num
+            %td
+              = m[:restaurant_name]
+            %td
+              = m[:phone]
+            %td
+              =link_to '修改'
+              =link_to '删除'
+
+
