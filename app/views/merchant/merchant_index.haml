@@ -7,4 +7,59 @@
           基本信息
         %td
           =link_to '菜品管理'
+  .modal-1
+    %br
+    %br
+    -#
+    =form_for :merchant do |f|
+      %table
+        %tr
+          %td
+            .input-prepend
+              = f.label :'用户名：', :class=>"add-on-1"
+              = f.text_field :user_name, :disabled =>"disabled"
+        %tr
+          %td
+            .input-prepend
+              = f.label :'餐馆名称：', :class=>"add-on-1"
+              = f.text_field :restaurant_name
+        %tr
+          %td
+            .input-prepend
+              = f.label :'地址一：', :class=>"add-on-1"
+              = f.text_field :addr
+          %td
+            =link_to '+添加地址'
+        %tr
+          %td
+            .input-prepend
+              = f.label :'联系电话一：' ,:class=>"add-on-1"
+              = f.text_field :phone
+        %tr
+          %td
+            .input-prepend
+              = f.label :'上传logo：' ,:class=>"add-on-1"
+              = f.text_field :logo
+            = link_to '浏览',:class=>'btn'
+        %tr
+          %td
+        %tr
+          %td
+            .input-prepend
+              = f.label :'备注:' ,:class=>"add-on-1", :style=>'height:30px'
+              = f.text_field :remark
+        %tr
+          %td
+            .input-prepend
+              = f.label :'标签:' ,:class=>"add-on-1"
+              -#= f.text_field :label, :class=>"wid-350"
+          %td
+            =link_to '+更多标签', :class=>'btn'
+      .btn-danger.active
+        -if @merchant.errors.any?
+          = @merchant.errors.first
+
+      %div
+        = f.submit "确认", class: "btn", style:'width:50px'
+        = link_to '取消', merchant_index_path, :class=>'btn',:style=>'width:40px'
 
