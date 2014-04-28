@@ -11,19 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427142937) do
+ActiveRecord::Schema.define(version: 20140428074811) do
 
   create_table "labels", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "label_name"
-  end
-
-  create_table "merchant_addrs", force: true do |t|
-    t.string   "addr"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "merchant_labels", force: true do |t|
@@ -33,25 +26,18 @@ ActiveRecord::Schema.define(version: 20140427142937) do
     t.integer  "label_id"
   end
 
-  create_table "merchant_phones", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "phone"
-  end
-
   create_table "merchants", force: true do |t|
     t.string   "user_name"
     t.string   "restaurant_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "login_type",      default: "user"
     t.string   "password_digest"
     t.string   "remark"
-    t.string   "addr",            default: " "
-    t.string   "phone",           default: " "
-    t.string   "logo",            default: " "
-    t.string   "label",           default: " "
+    t.string   "addr"
+    t.string   "phone"
+    t.string   "logo"
+    t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
