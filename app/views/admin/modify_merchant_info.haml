@@ -9,20 +9,30 @@
     %br
     %br
     =form_for :merchant do |f|
-      .input-prepend
-        = f.label :'用户名：', :class=>"add-on-1"
-        = f.text_field :user_name, :style=>"width:200px",:disabled =>"disabled"
-      %span(style="width:150px,color:#FF0000" )
-        *不可修改
-      .input-prepend
-        = f.label :'餐馆名称：', :class=>"add-on-1"
-        = f.text_field :restaurant_name, :class=>"wid-350"
-      .input-prepend
-        = f.label :'密码：', :class=>"add-on-1"
-        = f.text_field :password, :type=>"password", :class=>"wid-350"
-      .input-prepend
-        = f.label :'请确认密码：' ,:class=>"add-on-1"
-        = f.text_field :password_confirmation, :type=>"password", :class=>"wid-350"
+      %table
+        %tr
+          %td
+            .input-prepend
+              = f.label :'用户名：', :class=>"add-on-1"
+              = f.text_field :user_name,:disabled =>"disabled"
+          %td
+            %font(style="color:#FF0000" )
+              *不可修改
+        %tr
+          %td
+            .input-prepend
+              = f.label :'餐馆名称：', :class=>"add-on-1"
+              = f.text_field :restaurant_name
+        %tr
+          %td
+            .input-prepend
+              = f.label :'密码：', :class=>"add-on-1"
+              = f.text_field :password, :type=>"password"
+        %tr
+          %td
+            .input-prepend
+              = f.label :'请确认密码：' ,:class=>"add-on-1"
+              = f.text_field :password_confirmation, :type=>"password"
 
       .btn-danger.active
         -if @merchant.errors.any?
