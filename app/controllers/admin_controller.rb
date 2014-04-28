@@ -24,9 +24,40 @@ class AdminController < ApplicationController
     end
   end
 
-  def modify_merchant_info
-      @merchant = Merchant.find_by_user_name(params[:user_name])
+  def save_modify_merchant_id
+    session[:modify_merchant_id] = Merchant.find_by_user_name(params[:user_name]).id
+    redirect_to :modify_merchant_info
   end
+
+  def modify_merchant_info
+    @merchant = Merchant.find_by_id(session[:modify_merchant_id])
+  end
+
+  def update_merchant_info
+    judge_input = judge_input(params[:merchant])
+    if judge_input == 'legal'
+      @merchant = Merchant.find_by_id(session[:modify_merchant_id])
+      @merchant.restaurant_name=params[:merchant][:restaurant_name]
+      @merchant.password = params[:merchant][:password]
+      @merchant.password_confirmation = params[:merchant][:password_confirmation]
+      @merchant.save
+      render :modify_merchant_info
+    end
+  end
+
+  def judge_input(merchant)
+    @merchant = Merchant.find_by_id(session[:modify_merchant_id])
+    if merchant[:restaurant_name] == '' || merchant[:password] == '' || merchant[:password_confirmation]==''
+      flash.now[:error] = '输入不能为空'
+      return render :modify_merchant_info
+    end
+    if merchant[:password] != merchant[:password_confirmation]
+      flash.now[:error] = '两次密码输入不一致'
+      return render :modify_merchant_info
+    end
+    'legal'
+  end
+
 
   def delete_merchant
     Merchant.find_by_user_name(params[:user_name]).delete

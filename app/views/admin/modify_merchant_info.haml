@@ -35,8 +35,7 @@
               = f.text_field :password_confirmation, :type=>"password"
 
       .btn-danger.active
-        -if @merchant.errors.any?
-          = @merchant.errors.first
+        = flash.now[:error]
 
       %div
         = f.submit "确认", class: "btn", style:'width:50px'

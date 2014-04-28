@@ -39,6 +39,14 @@ gem 'protected_attributes'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'mysql'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

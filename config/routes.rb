@@ -7,8 +7,10 @@ DiningWebsite::Application.routes.draw do
   get 'add_new_merchant' => 'admin#add_new_merchant'
   get 'cancel_add_merchant' =>'admin#add_new_merchant'
   get 'modify_merchant_info' =>'admin#modify_merchant_info'
+  get 'save_modify_merchant_id' =>'admin#save_modify_merchant_id'
 
   post 'add_new_merchant' =>'admin#save_new_merchant'
+  post 'modify_merchant_info' =>'admin#update_merchant_info'
 
   delete 'delete_merchant' => 'admin#delete_merchant'
   #user
