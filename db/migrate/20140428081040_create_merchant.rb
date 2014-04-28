@@ -7,7 +7,7 @@ class CreateMerchant < ActiveRecord::Migration
       t.string   :password_digest
       t.string   :remark
       t.string   :addr
-      t.string   :phone
+      t.integer  :phone
       t.string   :logo
       t.string   :label
       t.timestamps
