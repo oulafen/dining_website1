@@ -22,12 +22,12 @@ class MerchantController < ApplicationController
   end
 
   def merchant_index
-    merchant=Merchant.find_by_id(session[:user_id])
-    if merchant[:login_type] == 'user'
+    #merchant=Merchant.find_by_id(session[:user_id])
+    #if merchant[:login_type] == 'user'
       @merchant = Merchant.find_by_id(session[:user_id])
-    else
-      redirect_to :login
-    end
+    #else
+    #  redirect_to :login
+    #end
   end
 
 
