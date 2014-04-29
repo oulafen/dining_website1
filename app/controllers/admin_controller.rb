@@ -33,6 +33,10 @@ class AdminController < ApplicationController
     @merchant = Merchant.find_by_id(session[:modify_merchant_id])
   end
 
+  def label_manager
+    #@label = Label.find(all)
+  end
+
   def update_merchant_info
     judge_input = judge_input(params[:merchant])
     if judge_input == 'legal'
@@ -64,21 +68,21 @@ class AdminController < ApplicationController
     redirect_to :admin_index
   end
 
-  #def reconstruct_merchant_info
-  #  users=[]
-  #  merchant = Merchant.where(:login_type => 'user')
-  #  merchant.each do |m|
-  #    user = {}
-  #    #temp_phone = MerchantPhone.find_by_user_id(m.id)
-  #    user[:phone] = ''
-  #    #if temp_phone
-  #    #  user[:phone]=temp_phone[:phone]
-  #    #end
-  #    user[:restaurant_name] = m.restaurant_name
-  #    user[:user_name] = m.user_name
-  #    users.push(user)
-  #  end
-  #  users
-  #end
+  def reconstruct_merchant_info
+    users=[]
+    merchant = Merchant.where(:login_type => 'user')
+    merchant.each do |m|
+      user = {}
+      #temp_phone = MerchantPhone.find_by_user_id(m.id)
+      user[:phone] = ''
+      #if temp_phone
+      #  user[:phone]=temp_phone[:phone]
+      #end
+      user[:restaurant_name] = m.restaurant_name
+      user[:user_name] = m.user_name
+      users.push(user)
+    end
+    users
+  end
 
 end
