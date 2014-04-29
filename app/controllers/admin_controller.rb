@@ -64,21 +64,21 @@ class AdminController < ApplicationController
     redirect_to :admin_index
   end
 
-  def reconstruct_merchant_info
-    users=[]
-    merchant = Merchant.where(:login_type => 'user')
-    merchant.each do |m|
-      user = {}
-      #temp_phone = MerchantPhone.find_by_user_id(m.id)
-      user[:phone] = ''
-      #if temp_phone
-      #  user[:phone]=temp_phone[:phone]
-      #end
-      user[:restaurant_name] = m.restaurant_name
-      user[:user_name] = m.user_name
-      users.push(user)
-    end
-    users
-  end
+  #def reconstruct_merchant_info
+  #  users=[]
+  #  merchant = Merchant.where(:login_type => 'user')
+  #  merchant.each do |m|
+  #    user = {}
+  #    #temp_phone = MerchantPhone.find_by_user_id(m.id)
+  #    user[:phone] = ''
+  #    #if temp_phone
+  #    #  user[:phone]=temp_phone[:phone]
+  #    #end
+  #    user[:restaurant_name] = m.restaurant_name
+  #    user[:user_name] = m.user_name
+  #    users.push(user)
+  #  end
+  #  users
+  #end
 
 end
